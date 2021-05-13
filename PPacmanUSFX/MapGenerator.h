@@ -12,7 +12,8 @@
 #include "Fruta.h"
 #include "Moneda.h"
 #include "Pared.h"
-//#include "TileGraph.h"
+#include "TileGraph.h"
+#include "Tile.h"
 
 using namespace std;
 
@@ -22,7 +23,8 @@ class MapGenerator
 {
 private:
 	vector<GameObject*> vectorObjetosJuego;
-	list<GameObject*> listaObjetosJuego;
+	TileGraph* tileGraph;
+
 	const string pathPacman = "Resources/PacMan.bmp";
 	const string pathFantasma1 = "Resources/inkey.bmp";
 	const string pathFantasma2 = "Resources/Blinky.bmp";
@@ -46,7 +48,7 @@ private:
 	int anchoPantalla;
 	int altoPantalla;
 public:
-	MapGenerator(int _anchoPantalla, int _altoPantalla);
+	MapGenerator(TileGraph* _tileGraph, int _anchoPantalla, int _altoPantalla);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <list>
+//#include <list>
 #include <iostream>
 #include <array>
 #include "Tile.h"
@@ -10,7 +10,7 @@ using namespace std;
 class TileGraph
 {
 private:
-	Tile* tiles;
+	//Tile* tiles;
 	vector<Tile*> vectorTilesGraph;
 	//list<Tile*> listaTilesGraph;
 
@@ -24,7 +24,7 @@ public:
 	TileGraph(int _anchoTileGraph, int _altoTileGraph);
 	~TileGraph();
 
-	void configurar(int _anchoTileGraph, int _altoTileGraph);
+	void reconfigurar(int _anchoTileGraph, int _altoTileGraph);
 	Tile* getTileEn(int _x, int _y);
 
 	array<Tile*, 4> get4Vecinos(Tile* _tile);

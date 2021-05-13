@@ -1,7 +1,8 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, int _anchoPantalla, int _altoPantalla)
 {
+	tileGraph = _tileGraph;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 	
@@ -51,13 +52,14 @@ bool MapGenerator::load(string path)
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* newObject = nullptr;
-			//Tile* tile = pTileGraph -> GetTileAt(x, y);
+			Tile* tileNuevo = tileGraph -> getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
 			case 'x':
-				newObject = new Pared(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject = new Pared(tileNuevo, paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				cout << tileNuevo->getPosicionX() << "..." << tileNuevo->getPosicionY() << endl;
 				break;
 			case '.':
 				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
@@ -95,8 +97,7 @@ bool MapGenerator::load(string path)
 
 			// If the object was created, add it to the vector
 			if (newObject != nullptr) {
-				vectorObjetosJuego.push_back(newObject);
-				listaObjetosJuego.push_back(newObject);
+				vectorObjetosJuego.push_back(newObject);			
 			}
 		}
 
@@ -115,8 +116,7 @@ void MapGenerator::populate(std::vector<GameObject*>& _vectorObjetosJuegoGM)
 		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
 	}*/
 
-	for (auto iloj = listaObjetosJuego.begin(); iloj != listaObjetosJuego.end(); ++iloj) {
-		_vectorObjetosJuegoGM.push_back(*iloj);
-
+	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
+		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}
 }

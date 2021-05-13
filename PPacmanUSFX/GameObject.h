@@ -5,13 +5,15 @@
 
 using namespace std;
 
-//class TileGraph;
+class TileGraph;
 
 class GameObject
 {
 public:
-	//static TileGraph* tileGraph;
 	string nombre;
+	static TileGraph* tileGraph;
+	static int numeroObjetosCreados;
+
 protected:
 	// Posicion en el eje X y Y
 	int idObjeto;
@@ -29,6 +31,7 @@ protected:
 	// Si el objeto es visible
 	bool visible;
 	bool eliminar;
+	bool enMovimiento;
 
 	// Textura para representacion grafica del objeto
 	Texture* textura;
@@ -36,9 +39,6 @@ protected:
 	int numeroFrame;
 	int contadorFrames;
 	int framesMovimiento;
-
-public:
-	static int numeroObjetosCreados;
 
 public:
 	//Constructores y destructores
@@ -53,7 +53,9 @@ public:
 	int getAnchoPantalla() { return anchoPantalla; }
 	int getAltoPantalla() { return altoPantalla; }
 	bool getVisible() { return visible; }
-
+	bool getEliminar() { return eliminar; }
+	bool getEnMovimiento() { return enMovimiento; }
+	
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void setAncho(int _ancho) { ancho = _ancho; }
@@ -61,16 +63,15 @@ public:
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
-
+	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
+	void setEliminarGameObject() { eliminar = true; }
+	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 	// Metodos varios
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 
 	// Renderizar imagen
 	virtual void render();
 	virtual void update();
-
-	virtual void move() {};
-	virtual void mostrar() {};
 	virtual void handleEvent(SDL_Event& e) {};
 };
 

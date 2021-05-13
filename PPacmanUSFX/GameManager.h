@@ -15,6 +15,7 @@
 #include "Moneda.h"
 #include "Texture.h"
 #include "MapGenerator.h"
+#include "TileGraph.h"
 
 using namespace std;
 
