@@ -29,6 +29,8 @@
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureAnimation.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
@@ -39,10 +41,13 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
+    <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="Pared.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
   </ItemGroup>

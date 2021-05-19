@@ -23,10 +23,10 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _a
 
 void GameObject::render()
 {
-	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
+	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
 
 	// Renderizar en la pantalla
-	textura->render(getPosicionX(), getPosicionY(), &renderQuad);
+	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
 void GameObject::update() {
@@ -37,4 +37,5 @@ void GameObject::update() {
 		numeroFrame = 0;
 		contadorFrames = 0;
 	}
+
 }

@@ -3,23 +3,27 @@
 
 using namespace std;
 
-//Fantasma::Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-//	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
-//{
-//	posicionXDestino = getPosicionX();
-//	posicionYDestino = getPosicionY();
-//	velocidadX = 1;
-//	velocidadY = 1;
-//	numeroFrame = 0;
-//	contadorFrames = 0;
-//	velocidadPatron = _velocidadPatron;
-//	fantasmaTexture = new Texture();
-//	fantasmaTexture->loadFromImage(path.c_str());
-//}
-
-Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_fantasmaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
+	tileActual = _tile;
+	tileSiguiente = nullptr;
+
+	if (tileActual != nullptr) {
+		tileActual->setFantasma(this);
+		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
+
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+	}
+	else {
+		posicionX = 0;
+		posicionY = 0;
+	}
+	
+	direccionActual = MOVE_RIGHT;
+	direccionSiguiente = MOVE_RIGHT;
+
 	posicionXDestino = getPosicionX();
 	posicionYDestino = getPosicionY();
 	velocidadX = 1;
@@ -28,68 +32,92 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	
 }
 
+void Fantasma::setTile(Tile* _tileNuevo) {
+	if (tileActual != nullptr) {
+		tileActual->setFantasma(nullptr);
+	}
+
+	tileActual = _tileNuevo;
+
+	if (tileActual != nullptr) {
+		tileActual->setFantasma(this);
+
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+	}
+}
+
+bool Fantasma::tratarDeMover(MoveDirection _direcionNueva) {
+	Tile* tileDestino = nullptr;
+
+	switch (_direcionNueva){
+	case  MOVE_UP: 
+	tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
+		break;
+	case  MOVE_DOWN:
+		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
+		break;
+	case  MOVE_RIGHT:
+		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
+		break;
+	case  MOVE_LEFT:
+		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
+		break;
+	}
+	if (tileDestino == nullptr) {
+		setTileSiguiente(nullptr);
+		return false;
+	}
+
+	if (tileDestino->getPared() != nullptr) {
+		setTileSiguiente(nullptr);
+		return false;
+	}
+
+	setTileSiguiente(tileDestino);
+
+	return true;
+}
+
 void Fantasma::update()
 {
-	if (incrementoPosicionX > 0) {
-		if (getPosicionX() >= posicionXDestino || getPosicionX() + getAncho() >= getAnchoPantalla()) {
-			posicionXDestino = 1 + rand() % (getAnchoPantalla() - getAncho());
-
-			if (getPosicionX() > posicionXDestino) {
-				incrementoPosicionX = -1;
-			}
-			else {
-				incrementoPosicionX = 1;
-			}			 
-
-		}
-		else {
-			setPosicionX(getPosicionX() + incrementoPosicionX * velocidadX);
-		}
+	if (enMovimiento) {
+		GameObject::update();
 	}
 	else {
-		if (getPosicionX() <= posicionXDestino || getPosicionX() <= 0) {
-			posicionXDestino = 1 + rand() % (getAnchoPantalla() - getAncho());
-
-			if (getPosicionX() > posicionXDestino) {
-				incrementoPosicionX = -1;
-			}
-			else {
-				incrementoPosicionX = 1;
-			}
-		}
-		else {
-			setPosicionX(getPosicionX() + incrementoPosicionX * velocidadX);
-		}
+		direccionSiguiente = MoveDirection(rand() % 6);
 	}
-		if (incrementoPosicionY > 0) {
-			if (getPosicionY() >= posicionYDestino || getPosicionY() + getAlto() >= getAltoPantalla()) {
-				posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
 
-				if (getPosicionY() > posicionYDestino) {
-					incrementoPosicionY = -1;
-				}
-				else {
-					incrementoPosicionY = 1;
-				}
-			}
-			else {
-				setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
-			}
+	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
+		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
+			direccionActual = direccionSiguiente;
+		else
+			tratarDeMover(direccionActual);
+		
+		if (tileSiguiente == nullptr)
+			enMovimiento = false;
+		else
+			enMovimiento = true;
+	}
+	else {
+		switch (direccionActual){
+			case MOVE_UP:
+				posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_DOWN:
+				posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_RIGHT:
+				posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
+			case MOVE_LEFT:
+				posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
 		}
-		else {
-			if (getPosicionY() <= posicionYDestino || getPosicionY() <= 0) {
-				posicionYDestino = 1 + rand() % (getAltoPantalla() - getAlto());
-
-				if (getPosicionY() > posicionYDestino) {
-					incrementoPosicionY = -1;
-				}
-				else {
-					incrementoPosicionY = 1;
-				}
-			}
-			else {
-				setPosicionY(getPosicionY() + incrementoPosicionY * velocidadY);
-			}
-		}
+		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+			setTile(tileSiguiente);
+		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+			setTile(tileSiguiente);
+	}
 }
 

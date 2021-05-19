@@ -5,7 +5,7 @@ using namespace std;
 GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
-	
+
 	juego_en_ejecucion = true;
 }
 
@@ -14,11 +14,12 @@ int GameManager::onExecute() {
 		return -1;
 	}
 
-	srand(time(NULL));
+	srand(time(nullptr));
 
 	TileGraph tileGraphGM(20, 15);
-
-	generadorNivelJuego = new MapGenerator(&tileGraphGM, SCREEN_WIDTH, SCREEN_HEIGHT);
+	textureManager = new TextureManager();
+	GameObject::tileGraph = &tileGraphGM;
+	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 
@@ -28,7 +29,7 @@ int GameManager::onExecute() {
 		while (SDL_PollEvent(&Event)) {
 			onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
-				actoresJuego[i]->handleEvent(Event);
+				actoresJuego[i]->handleEvent(&Event);
 			}
 		}
 
@@ -84,7 +85,6 @@ bool GameManager::onInit() {
 			}
 
 			Texture::renderer = gRenderer;
-
 		}
 	}
 
@@ -107,8 +107,8 @@ void GameManager::onRender() {
 };
 
 void GameManager::onCleanup() {
+
 	SDL_Quit();
 };
-
 
 

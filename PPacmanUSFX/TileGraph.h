@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-//#include <list>
+#include <list>
 #include <iostream>
 #include <array>
 #include "Tile.h"
@@ -31,4 +31,5 @@ public:
 	array<Tile*, 8> get8Vecinos(Tile* _tile);
 
 	Pacman* getPacman();
+	
 };
