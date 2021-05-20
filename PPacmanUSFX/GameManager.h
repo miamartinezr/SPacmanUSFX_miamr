@@ -12,10 +12,12 @@
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"
+#include "NuevoEnemigo.h"
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
+
 
 using namespace std;
 

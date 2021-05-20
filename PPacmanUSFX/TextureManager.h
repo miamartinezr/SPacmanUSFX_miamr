@@ -16,7 +16,11 @@ private:
 	const string pathFruta = "Resources/frutas2.png";
 	const string pathMoneda = "Resources/Monedas02.jpg";
 	const string pathSuperMoneda = "Resources/coint1.png";
-	const string pathPared = "Resources/MuroH.png";
+	const string pathPared1 = "Resources/Pared1.jpeg";
+	const string pathPared2 = "Resources/Pared2.jpeg";
+	const string pathPared3= "Resources/Pared3.jpeg";
+	const string pathPared4 = "Resources/Pared4.jpeg";
+	const string pathNuevoEnemigo = "Resources/Maldad1.png";
 
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
@@ -26,7 +30,12 @@ private:
 	Texture* frutaTexture;
 	Texture* monedaTexture;
 	Texture* superMonedaTexture;
-	Texture* paredTexture;
+	Texture* pared1Texture;
+	Texture* pared2Texture;
+	Texture* pared3Texture;
+	Texture* pared4Texture;
+	Texture* nuevoEnemigoTexture;
+
 public:
 	TextureManager();
 	~TextureManager();

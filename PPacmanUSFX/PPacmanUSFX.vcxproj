@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NuevoEnemigo.cpp" />
     <ClCompile Include="Fantasma.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="NuevoEnemigo.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MoveDirection.h" />

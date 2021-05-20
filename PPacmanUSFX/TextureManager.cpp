@@ -26,9 +26,24 @@ TextureManager::TextureManager()
 	superMonedaTexture = new Texture();
 	superMonedaTexture->loadFromImage(pathSuperMoneda);
 	addTexture("supermoneda", superMonedaTexture);
-	paredTexture = new Texture();
-	paredTexture->loadFromImage(pathPared);
-	addTexture("pared", paredTexture);
+	
+	pared1Texture = new Texture();
+	pared1Texture->loadFromImage(pathPared1);
+	addTexture("pared1", pared1Texture);
+	pared2Texture = new Texture();
+	pared2Texture->loadFromImage(pathPared2);
+	addTexture("pared2", pared2Texture);
+	pared3Texture = new Texture();
+	pared3Texture->loadFromImage(pathPared3);
+	addTexture("pared3", pared3Texture);
+	pared4Texture = new Texture();
+	pared4Texture->loadFromImage(pathPared4);
+	addTexture("pared4", pared4Texture);
+	
+	nuevoEnemigoTexture = new Texture();
+	nuevoEnemigoTexture->loadFromImage(pathNuevoEnemigo);
+	addTexture("nuevoenemigo", nuevoEnemigoTexture);
+
 }
 
 TextureManager::~TextureManager() {

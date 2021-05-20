@@ -6,6 +6,7 @@ class Fantasma;
 class Fruta;
 class Moneda;
 class Pared;
+class NuevoEnemigo;
 
 class Tile
 {
@@ -15,13 +16,14 @@ private:
 	Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
+	NuevoEnemigo* nuevoEnemigo;
 
 	int posicionX;
 	int posicionY;
 
 public:
-	static const int anchoTile = 25;
-	static const int altoTile = 25;
+	static const int anchoTile = 40;
+	static const int altoTile = 40;
 
 public:
 	Tile();
@@ -32,6 +34,7 @@ public:
 	Fruta* getFruta() { return fruta; }
 	Moneda* getMoneda() { return moneda; }
 	Pared* getPared() { return pared; }
+	NuevoEnemigo* getNuevoEnemigo() { return nuevoEnemigo; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
 
@@ -40,6 +43,7 @@ public:
 	void setFruta(Fruta* _fruta) { fruta = _fruta; }
 	void setMoneda(Moneda* _moneda) { moneda = moneda; }
 	void setPared(Pared* _pared) { pared = _pared; }
+	void setNuevoEnemigo(NuevoEnemigo* _nuevoEnemigo) { nuevoEnemigo = _nuevoEnemigo; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 

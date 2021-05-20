@@ -40,6 +40,8 @@ protected:
 	int contadorFrames;
 	int framesMovimiento;
 
+	int posicionXTextura;
+	int posicionYTextura;
 
 public:
 	//Constructores y destructores
@@ -70,6 +72,7 @@ public:
 
 	// Metodos varios
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
+	void setPosicionXTextura(int _posicionXTextura) { posicionXTextura = _posicionXTextura; }
 
 	// Renderizar imagen
 	virtual void render();
