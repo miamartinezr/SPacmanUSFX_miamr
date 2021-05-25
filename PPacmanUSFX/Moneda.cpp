@@ -33,4 +33,9 @@ void Moneda::setTileActual(Tile* _tileNuevo) {
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
 }
+void Moneda::deleteGameObject()
+{
+	GameObject::deleteGameObject();
+	tileActual->setMoneda(nullptr);
+}
 

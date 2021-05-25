@@ -18,13 +18,11 @@
 #include "TileGraph.h"
 #include "TextureManager.h"
 
-
 using namespace std;
 
-
 //Screen dimension constants
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
 
 class GameManager
 {
@@ -38,6 +36,7 @@ private:
     SDL_Renderer* gRenderer;
 
     vector<GameObject*> actoresJuego;
+    list<GameObject>* lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
 public:

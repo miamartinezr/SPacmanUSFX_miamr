@@ -3,7 +3,7 @@ xf.x.....e......x.fx
 xw................zx                
 x..wz.x..xx..x.wz..x     
 xo.xx.x..xx..x.xx.ox 
-xx.xxxxxxxxxxxxxx.xx                 
+xx....xxxxxxxx....xx                 
 xx................xx                 
 xxx..ox      xo..xxx               
 xxf..ox abcd xo..fxx      

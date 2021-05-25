@@ -12,22 +12,23 @@ class Moneda :
     public GameObject
 {
 private:
-    TIPO_MONEDA tipoMoneda;
     int valorMoneda;
+    TIPO_MONEDA tipoMoneda;
     Tile* tileActual;
 
 public:
     
     Moneda(Tile* _tile, Texture* _monedaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
      
-    TIPO_MONEDA getTipoMoneda() {return tipoMoneda; }
     int getValorMoneda() { return valorMoneda; }
+    TIPO_MONEDA getTipoMoneda() {return tipoMoneda; }
     Tile* getTileActual() { return tileActual; }
 
-    void setTipoMoneda(TIPO_MONEDA _tipoMoneda) { tipoMoneda = _tipoMoneda; }
     void setValorMoneda(int _valorMoneda) { valorMoneda = _valorMoneda; }
+    void setTipoMoneda(TIPO_MONEDA _tipoMoneda) { tipoMoneda = _tipoMoneda; }
     void setTileActual(Tile* _tileNuevo);
 
+    void deleteGameObject() override;
     //void render();
 };
 

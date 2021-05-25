@@ -40,8 +40,10 @@ protected:
 	int contadorFrames;
 	int framesMovimiento;
 
-	int posicionXTextura;
-	int posicionYTextura;
+	/*int posicionXTextura;
+	int posicionYTextura;*/
+
+	SDL_Rect* colisionador;
 
 public:
 	//Constructores y destructores
@@ -72,12 +74,17 @@ public:
 
 	// Metodos varios
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
-	void setPosicionXTextura(int _posicionXTextura) { posicionXTextura = _posicionXTextura; }
-
+	//void setPosicionXTextura(int _posicionXTextura) { posicionXTextura = _posicionXTextura; }
+	virtual SDL_Rect* getColisionador() { return colisionador; }
+	bool revisarColision(const SDL_Rect* _otroColisionador);
+	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
+	
 	// Renderizar imagen
 	virtual void render();
 	virtual void update();
 	virtual void handleEvent(SDL_Event* event) {};
+	virtual void deleteGameObject() { eliminar = true; }
+	virtual void free() {};
 };
 
-
+ 

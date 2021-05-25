@@ -18,7 +18,6 @@
 #include "TextureManager.h"
 #include "TextureAnimation.h"
 
-
 using namespace std;
 
 class MapGenerator
@@ -27,7 +26,6 @@ private:
 	vector<GameObject*> vectorObjetosJuego;
 	TileGraph* tileGraph;
 	TextureManager* textureManager;
-
 
 	int anchoPantalla;
 	int altoPantalla;

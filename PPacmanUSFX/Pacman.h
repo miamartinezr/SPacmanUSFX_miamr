@@ -11,6 +11,7 @@
 #include "TileGraph.h"
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
+#include "Moneda.h"
 
 using namespace std;
 
@@ -36,12 +37,12 @@ private:
 	TextureAnimation* texturaAnimacion;
 	
 	// Implementar pacman2
-	bool guerreroPacman = false;
+	//bool guerreroPacman = false;
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, 
 		int _posicionY, int _ancho, 
-		int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron, bool guerreroPacman);
+		int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
 
 	//~Pacman();
 
@@ -70,6 +71,7 @@ public:
 	// Renderizar imagen pacman
 	void render() override;
 	//void update();
+	void deleteGameObject() override;
 
 };
 

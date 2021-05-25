@@ -62,38 +62,38 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5, false);
+				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*false*/);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
-			case 'g':
+			/*case 'g':
 				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5, true);
 				objetoNuevo->setParametrosAnimacion(2);
-				break;
+				break;*/
 			case 'a':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'b':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'c':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'd':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'e':
 				objetoNuevo = new NuevoEnemigo(tileNuevo, textureManager->getTexture("nuevoenemigo"), x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 4);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'f':
+			/*case 'f':
 				objetoNuevo = new Fruta(tileNuevo, textureManager->getTexture("fruta"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
 				int i = rand() % 8;
 				objetoNuevo->setPosicionXTextura(25 * i);
-				break;
+				break;*/
 			}
 
 			// If the object was created, add it to the vector

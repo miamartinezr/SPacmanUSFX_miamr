@@ -9,14 +9,16 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
+#include "PathFinder.h"
+#include "Pacman.h"
 
 using namespace std;
 
 class Fantasma : public GameObject{
 private:
+	// Velocidad de fantasma en los ejes X y Y
 	int velocidadX;
 	int velocidadY;
-
 	int velocidadPatron;
 
 	int posicionXDestino;
@@ -27,10 +29,14 @@ private:
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
+	
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 	 
 	bool tratarDeMover(MoveDirection _direccionNueva);
+
+	vector <Tile*>camino;
+
 public:
 	// Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int posicionY, int _ancho, int _alto, int anchoPantalla, int altoPantalla, int _velocidadPatron);
@@ -54,4 +60,6 @@ public:
 	
 	// Actualizar datos fantasma
 	void update() override;
+
+	static bool AvoidInPathFinder(Tile* _tile);
 };
