@@ -18,6 +18,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
 	tileActual = _tile;
+
 	tileSiguiente = nullptr;
 
 	if (tileActual != nullptr) {
