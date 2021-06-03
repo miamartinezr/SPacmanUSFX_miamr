@@ -5,6 +5,9 @@ TextureManager::TextureManager()
 	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacman);
 	addTexture("pacman", pacmanTexture);
+	pacman2Texture = new Texture();
+	pacman2Texture->loadFromImage(pathPacman2);
+	addTexture("pacman2", pacman2Texture);
 	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
 	addTexture("fantasma1", fantasma1Texture);
@@ -30,12 +33,12 @@ TextureManager::TextureManager()
 	pared1Texture = new Texture();
 	pared1Texture->loadFromImage(pathPared1);
 	addTexture("pared1", pared1Texture);
-	pared2Texture = new Texture();
+	/*pared2Texture = new Texture();
 	pared2Texture->loadFromImage(pathPared2);
 	addTexture("pared2", pared2Texture);
 	pared3Texture = new Texture();
 	pared3Texture->loadFromImage(pathPared3);
-	addTexture("pared3", pared3Texture);
+	addTexture("pared3", pared3Texture);*/
 	pared4Texture = new Texture();
 	pared4Texture->loadFromImage(pathPared4);
 	addTexture("pared4", pared4Texture);

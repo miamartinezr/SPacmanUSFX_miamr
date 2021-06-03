@@ -67,20 +67,20 @@ void Pacman::handleEvent(SDL_Event* event)
 		switch (event->key.keysym.sym)
 		{
 			// Move up
-		case SDLK_UP:
-		case SDLK_w: direccionSiguiente = MOVE_UP; break;
+		case SDLK_UP:direccionSiguiente = MOVE_UP; break;
+		/*case SDLK_w:*/ direccionSiguiente = MOVE_UP; break;
 
 			// Move down
-		case SDLK_DOWN:
-		case SDLK_s: direccionSiguiente = MOVE_DOWN; break;
+		case SDLK_DOWN:direccionSiguiente = MOVE_DOWN; break;
+		//case SDLK_s: direccionSiguiente = MOVE_DOWN; break;
 
 			// Move left
-		case SDLK_LEFT:
-		case SDLK_a: direccionSiguiente = MOVE_LEFT; break;
+		case SDLK_LEFT: direccionSiguiente = MOVE_LEFT; break;
+		//case SDLK_a: direccionSiguiente = MOVE_LEFT; break;
 
 			// Move right
-		case SDLK_RIGHT:
-		case SDLK_d: direccionSiguiente = MOVE_RIGHT; break;
+		case SDLK_RIGHT: direccionSiguiente = MOVE_RIGHT; break;
+		//case SDLK_d: direccionSiguiente = MOVE_RIGHT; break;
 		}
 	}
 	// Implementacion Pacman2
@@ -171,7 +171,7 @@ void Pacman::update()
 	// Revisar colisiones con monedas
 	// NOTE: Should this be nextTile?
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
-		cout << "moneda" << endl;
+		//cout << "moneda" << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,

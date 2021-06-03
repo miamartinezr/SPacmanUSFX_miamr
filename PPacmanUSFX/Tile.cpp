@@ -11,6 +11,7 @@ Tile::Tile() {
 	moneda = nullptr;
 	pared = nullptr;
 	//nuevoEnemigo = nullptr;
+	//pacman2 = nullptr;
 }
 
 Tile::Tile(int _x, int _y) {
@@ -23,4 +24,5 @@ Tile::Tile(int _x, int _y) {
 	moneda = nullptr;
 	pared = nullptr;
 	nuevoEnemigo = nullptr;
+	//pacman2 = nullptr;
 }

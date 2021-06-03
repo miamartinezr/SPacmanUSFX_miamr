@@ -17,12 +17,13 @@
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
+#include "Pacman2.h"
 
 using namespace std;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 800;
+const int SCREEN_HEIGHT = 600;
 
 class GameManager
 {

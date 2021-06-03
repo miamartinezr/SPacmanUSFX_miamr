@@ -22,8 +22,8 @@ private:
 	int posicionY;
 
 public:
-	static const int anchoTile = 25;
-	static const int altoTile = 25;
+	static const int anchoTile = 40;
+	static const int altoTile = 40;
 
 public:
 	Tile();

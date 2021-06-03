@@ -17,7 +17,7 @@ using namespace std;
 
 class Pacman : public GameObject
 {
-private:
+protected:
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -65,7 +65,7 @@ public:
 	bool tratarDeMover(MoveDirection _direccionNueva);
 
 	// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;
+	virtual void handleEvent(SDL_Event* event) /*override*/;
 	// Mover pacman
 	void update() override;
 	// Renderizar imagen pacman

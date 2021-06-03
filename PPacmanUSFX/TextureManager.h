@@ -9,6 +9,7 @@ private:
 	map<string, Texture*> mapTexturas;
 
 	const string pathPacman = "Resources/PacMan.bmp";
+	const string pathPacman2 = "Resources/PacMan.bmp";
 	const string pathFantasma1 = "Resources/Pacmanultimo.bmp";
 	const string pathFantasma2 = "Resources/fantasmaamarillo.bmp";
 	const string pathFantasma3 = "Resources/azul.png";
@@ -16,13 +17,14 @@ private:
 	const string pathFruta = "Resources/frutas2.png";
 	const string pathMoneda = "Resources/Monedas02.jpg";
 	const string pathSuperMoneda = "Resources/coint1.png";
-	const string pathPared1 = "Resources/Pared1.jpeg";
-	const string pathPared2 = "Resources/Pared2.jpeg";
-	const string pathPared3= "Resources/Pared3.jpeg";
-	const string pathPared4 = "Resources/Pared4.jpeg";
+	const string pathPared1 = "Resources/Muro.png";
+	//const string pathPared2 = "Resources/Muro2.png";
+	//const string pathPared3= "Resources/Muro.png";
+	const string pathPared4 = "Resources/Muro2.png";
 	const string pathNuevoEnemigo = "Resources/Maldad1.png";
 
 	Texture* pacmanTexture;
+	Texture* pacman2Texture;
 	Texture* fantasma1Texture;
 	Texture* fantasma2Texture;
 	Texture* fantasma3Texture;
@@ -31,8 +33,8 @@ private:
 	Texture* monedaTexture;
 	Texture* superMonedaTexture;
 	Texture* pared1Texture;
-	Texture* pared2Texture;
-	Texture* pared3Texture;
+	//Texture* pared2Texture;
+	//Texture* pared3Texture;
 	Texture* pared4Texture;
 	Texture* nuevoEnemigoTexture;
 

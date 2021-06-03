@@ -13,6 +13,7 @@
 #include "Fruta.h"
 #include "Pared.h"
 #include "NuevoEnemigo.h"
+#include "Pacman2.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
