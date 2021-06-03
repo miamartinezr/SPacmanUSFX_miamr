@@ -9,10 +9,10 @@ private:
 	map<string, Texture*> mapTexturas;
 
 	const string pathPacman = "Resources/PacMan.bmp";
-	const string pathFantasma1 = "Resources/Blinky.bmp";
-	const string pathFantasma2 = "Resources/Clyde.bmp";
-	const string pathFantasma3 = "Resources/Inkey.bmp";
-	const string pathFantasma4 = "Resources/Pinky.bmp";
+	const string pathFantasma1 = "Resources/Pacmanultimo.bmp";
+	const string pathFantasma2 = "Resources/fantasmaamarillo.bmp";
+	const string pathFantasma3 = "Resources/azul.png";
+	const string pathFantasma4 = "Resources/fantasma.png";
 	const string pathFruta = "Resources/frutas2.png";
 	const string pathMoneda = "Resources/Monedas02.jpg";
 	const string pathSuperMoneda = "Resources/coint1.png";

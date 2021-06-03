@@ -216,6 +216,9 @@ void Pacman::update()
 			break;
 		}
 
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
+
 		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 

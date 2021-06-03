@@ -22,7 +22,7 @@ public:
      
     int getValorMoneda() { return valorMoneda; }
     TIPO_MONEDA getTipoMoneda() {return tipoMoneda; }
-    Tile* getTileActual() { return tileActual; }
+    Tile* getTile() { return tileActual; }
 
     void setValorMoneda(int _valorMoneda) { valorMoneda = _valorMoneda; }
     void setTipoMoneda(TIPO_MONEDA _tipoMoneda) { tipoMoneda = _tipoMoneda; }

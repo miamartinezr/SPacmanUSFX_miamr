@@ -22,8 +22,8 @@ private:
 	int posicionY;
 
 public:
-	static const int anchoTile = 40;
-	static const int altoTile = 40;
+	static const int anchoTile = 25;
+	static const int altoTile = 25;
 
 public:
 	Tile();
@@ -41,7 +41,7 @@ public:
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
 	void setFantasma(Fantasma* _fantasma) { fantasma = _fantasma; }
 	void setFruta(Fruta* _fruta) { fruta = _fruta; }
-	void setMoneda(Moneda* _moneda) { moneda = moneda; }
+	void setMoneda(Moneda* _moneda) { moneda = _moneda; }
 	void setPared(Pared* _pared) { pared = _pared; }
 	void setNuevoEnemigo(NuevoEnemigo* _nuevoEnemigo) { nuevoEnemigo = _nuevoEnemigo; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }

@@ -72,6 +72,5 @@ public:
 	void render() override;
 	//void update();
 	void deleteGameObject() override;
-
 };
 

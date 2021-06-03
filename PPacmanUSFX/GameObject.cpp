@@ -42,6 +42,21 @@ bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
 	if (_otroColisionador->x > colisionador->x + colisionador->w) {
 		return false;
 	}
+	if (_otroColisionador->y > colisionador->y + colisionador->h) {
+		return false;
+	}
+	if (_otroColisionador->x + _otroColisionador->w < colisionador->x) {
+		return false;
+	}
+	if (_otroColisionador->y + _otroColisionador->h < colisionador->y) {
+		return false;
+	}
+
+	return true;
+
+	/*if (_otroColisionador->x > colisionador->x + colisionador->w) {
+		return false;
+	}
 
 	if (_otroColisionador->y > colisionador->y + colisionador->h) {
 		return false;
@@ -55,12 +70,27 @@ bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
 		return false;
 	}
 
-	return true;
+	return true;*/
 }
 
 bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2)
 {
+
 	if (_colisionador1->x > _colisionador2->x + _colisionador2->w) {
+		return false;
+	}
+	if (_colisionador1->y > _colisionador2->y + _colisionador2->h) {
+		return false;
+	}
+	if (_colisionador1->x + _colisionador1->w < _colisionador2->x) {
+		return false;
+	}
+	if (_colisionador1->y + _colisionador1->h < _colisionador2->y) {
+		return false;
+	}
+
+	return true;
+	/*if (_colisionador1->x > _colisionador2->x + _colisionador2->w) {
 		return false;
 	}
 
@@ -76,7 +106,7 @@ bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect*
 		return false;
 	}
 
-	return true;
+	return true;*/
 }
 
 void GameObject::update() {

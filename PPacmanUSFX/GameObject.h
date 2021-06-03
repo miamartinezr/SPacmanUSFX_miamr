@@ -48,6 +48,7 @@ protected:
 public:
 	//Constructores y destructores
 	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	~GameObject() {};
 
 	//Metodos accesores
 	int getIdObjeto() { return idObjeto; }
@@ -69,7 +70,7 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
-	void eliminarGameObject() { eliminar = true; }
+	//void eliminarGameObject() { eliminar = true; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 
 	// Metodos varios
@@ -86,5 +87,3 @@ public:
 	virtual void deleteGameObject() { eliminar = true; }
 	virtual void free() {};
 };
-
- 
