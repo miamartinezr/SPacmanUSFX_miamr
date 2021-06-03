@@ -171,6 +171,7 @@ void Pacman::update()
 	// Revisar colisiones con monedas
 	// NOTE: Should this be nextTile?
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		cout << "moneda" << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,

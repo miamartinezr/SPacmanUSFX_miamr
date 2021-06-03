@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <vector>
 #include "GameObject.h"
 #include "Texture.h"
 #include "TileGraph.h"
@@ -17,18 +18,20 @@ private:
     Tile* tileActual;
 
 public:
-    
+
     Moneda(Tile* _tile, Texture* _monedaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
-     
+
     int getValorMoneda() { return valorMoneda; }
-    TIPO_MONEDA getTipoMoneda() {return tipoMoneda; }
+    TIPO_MONEDA getTipoMoneda() { return tipoMoneda; }
     Tile* getTile() { return tileActual; }
 
     void setValorMoneda(int _valorMoneda) { valorMoneda = _valorMoneda; }
     void setTipoMoneda(TIPO_MONEDA _tipoMoneda) { tipoMoneda = _tipoMoneda; }
-    void setTileActual(Tile* _tileNuevo);
+    void setTile(Tile* _tileNuevo);
 
     void deleteGameObject() override;
     //void render();
 };
+
+
 

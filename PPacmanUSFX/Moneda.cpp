@@ -4,9 +4,9 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTexture, int _posicionX, int _posici
 	GameObject(_monedaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	tileActual = _tile;
-	
+
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(nullptr);
+		tileActual->setMoneda(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -15,11 +15,13 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTexture, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
+	// Inicializa propiedade de de pacman
+
 
 	tipoMoneda = TIPO_MONEDA_NORMAL;
-	valorMoneda = 1;	
+	valorMoneda = 1;
 }
-void Moneda::setTileActual(Tile* _tileNuevo) {
+void Moneda::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
 		tileActual->setMoneda(nullptr);
 	}
@@ -38,4 +40,5 @@ void Moneda::deleteGameObject()
 	GameObject::deleteGameObject();
 	tileActual->setMoneda(nullptr);
 }
+
 
