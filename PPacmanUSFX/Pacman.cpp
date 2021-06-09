@@ -1,5 +1,15 @@
 #include <stdio.h>
 #include "Pacman.h"
+
+Pacman* Pacman::instanciaP = nullptr;
+
+Pacman* Pacman::crearInstanciaP(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) {
+	if (instanciaP == nullptr) {
+		instanciaP = new Pacman(_tile, _texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _velocidadPatron);
+	}
+	return instanciaP;
+}
+
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {

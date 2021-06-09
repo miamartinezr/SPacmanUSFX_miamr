@@ -38,15 +38,23 @@ protected:
 	
 	// Implementar pacman2
 	//bool guerreroPacman = false;
+
+	//Constructores y destructores
+	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX,
+		int _posicionY, int _ancho,
+		int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
+
+	static Pacman* instanciaP;
 public:
 	//Constructores y destructores
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, 
-		int _posicionY, int _ancho, 
-		int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
+	//Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, 
+	//	int _posicionY, int _ancho, 
+	//	int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
 
 	//~Pacman();
 
 	//Metodos accesores
+	static Pacman* crearInstanciaP(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }

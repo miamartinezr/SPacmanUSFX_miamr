@@ -62,13 +62,13 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*false*/);
+				objetoNuevo = Pacman::crearInstanciaP(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*false*/);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
-			case 'g':
-				objetoNuevo = new Pacman2(tileNuevo, textureManager->getTexture("pacman2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*true*/);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
+			//case 'g':
+			//	objetoNuevo = new Pacman2(tileNuevo, textureManager->getTexture("pacman2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*true*/);
+			//	objetoNuevo->setParametrosAnimacion(2);
+			//	break;
 			case 'a':
 				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
@@ -85,10 +85,10 @@ bool MapGenerator::load(string path)
 				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'e':
+			/*case 'e':
 				objetoNuevo = new NuevoEnemigo(tileNuevo, textureManager->getTexture("nuevoenemigo"), x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 4);
 				objetoNuevo->setParametrosAnimacion(4);
-				break;
+				break;*/
 			/*case 'f':
 				objetoNuevo = new Fruta(tileNuevo, textureManager->getTexture("fruta"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
 				int i = rand() % 8;
