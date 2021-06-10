@@ -20,9 +20,9 @@ TextureManager::TextureManager()
 	fantasma4Texture = new Texture();
 	fantasma4Texture->loadFromImage(pathFantasma4);
 	addTexture("fantasma4", fantasma4Texture);
-	frutaTexture = new Texture();
-	frutaTexture->loadFromImage(pathFruta);
-	addTexture("fruta", frutaTexture);
+	frutaClasicaTexture = new Texture();
+	frutaClasicaTexture->loadFromImage(pathFrutaClasica);
+	addTexture("frutaClasica", frutaClasicaTexture);
 	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
 	addTexture("moneda", monedaTexture);

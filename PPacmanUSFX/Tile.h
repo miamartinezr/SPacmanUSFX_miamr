@@ -3,7 +3,7 @@
 
 class Pacman;
 class Fantasma;
-class Fruta;
+//class Fruta;
 class Moneda;
 class Pared;
 class NuevoEnemigo;
@@ -13,7 +13,7 @@ class Tile
 private:
 	Pacman* pacman;
 	Fantasma* fantasma;
-	Fruta* fruta;
+	//Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
 	NuevoEnemigo* nuevoEnemigo;
@@ -31,7 +31,7 @@ public:
 
 	Pacman* getPacman() { return pacman; }
 	Fantasma* getFantasma() { return fantasma; }
-	Fruta* getFruta() { return fruta; }
+	//Fruta* getFruta() { return fruta; }
 	Moneda* getMoneda() { return moneda; }
 	Pared* getPared() { return pared; }
 	NuevoEnemigo* getNuevoEnemigo() { return nuevoEnemigo; }
@@ -40,7 +40,7 @@ public:
 
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
 	void setFantasma(Fantasma* _fantasma) { fantasma = _fantasma; }
-	void setFruta(Fruta* _fruta) { fruta = _fruta; }
+	//void setFruta(Fruta* _fruta) { fruta = _fruta; }
 	void setMoneda(Moneda* _moneda) { moneda = _moneda; }
 	void setPared(Pared* _pared) { pared = _pared; }
 	void setNuevoEnemigo(NuevoEnemigo* _nuevoEnemigo) { nuevoEnemigo = _nuevoEnemigo; }

@@ -1,10 +1,10 @@
 xxxxxxxxxxxxxxxxxxxx
-x..g.....e......f..x                                
+x..g.....e.........x                                
 x.xx.xx.xxxx.xx.xx.x                
 x.ww.xx.xxxx.xx.ww.x     
 xoww.xx......xx.wwox 
 x.xx.xxxxxxxxxx.xx.x                 
-x.....f........f...x                 
+x..................x                 
 xx.xoxx      xxox.xx               
 xx.xoxx abcd xxox.xx      
 xx.x.xwxwxwxwxx.x.xx           

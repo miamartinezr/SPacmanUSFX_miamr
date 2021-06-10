@@ -1,14 +1,6 @@
-#include "MapGenerator.h"
+#include "Laberinto.h"
 
-MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla)
-{
-	tileGraph = _tileGraph;
-	textureManager = _textureManager;
-	anchoPantalla = _anchoPantalla;
-	altoPantalla = _altoPantalla;
-}
-
-bool MapGenerator::load(string path)
+bool Laberinto::load(string path)
 {
 	// Crea un flujo a un archivo
 	fstream file;
@@ -41,14 +33,14 @@ bool MapGenerator::load(string path)
 				objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared1"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
 				//objetoNuevo->setParametrosAnimacion(1);
 				break;
-			//case 'y':
-			//	objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared2"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
-			//	//objetoNuevo->setParametrosAnimacion(1);
-			//	break;
-			//case 'z':
-			//	objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared3"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
-			//	//objetoNuevo->setParametrosAnimacion(1);
-			//	break;
+				//case 'y':
+				//	objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared2"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
+				//	//objetoNuevo->setParametrosAnimacion(1);
+				//	break;
+				//case 'z':
+				//	objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared3"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
+				//	//objetoNuevo->setParametrosAnimacion(1);
+				//	break;
 			case 'w':
 				objetoNuevo = new Pared(tileNuevo, textureManager->getTexture("pared4"), x * Tile::altoTile, y * Tile::altoTile, 40, 40, anchoPantalla, altoPantalla);
 				//objetoNuevo->setParametrosAnimacion(1);
@@ -65,10 +57,10 @@ bool MapGenerator::load(string path)
 				objetoNuevo = Pacman::crearInstanciaP(tileNuevo, textureManager->getTexture("pacman"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*false*/);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
-			//case 'g':
-			//	objetoNuevo = new Pacman2(tileNuevo, textureManager->getTexture("pacman2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*true*/);
-			//	objetoNuevo->setParametrosAnimacion(2);
-			//	break;
+				//case 'g':
+				//	objetoNuevo = new Pacman2(tileNuevo, textureManager->getTexture("pacman2"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 5 /*true*/);
+				//	objetoNuevo->setParametrosAnimacion(2);
+				//	break;
 			case 'a':
 				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
@@ -85,19 +77,15 @@ bool MapGenerator::load(string path)
 				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'f':
-				objetoNuevo = new FrutaClasica(textureManager->getTexture("frutaClasica"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				objetoNuevo->setParametrosAnimacion(3);
-				break;
-			/*case 'e':
-				objetoNuevo = new NuevoEnemigo(tileNuevo, textureManager->getTexture("nuevoenemigo"), x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 4);
-				objetoNuevo->setParametrosAnimacion(4);
-				break;*/
-			/*case 'f':
-				objetoNuevo = new Fruta(tileNuevo, textureManager->getTexture("fruta"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
-				int i = rand() % 8;
-				objetoNuevo->setPosicionXTextura(25 * i);
-				break;*/
+				/*case 'e':
+					objetoNuevo = new NuevoEnemigo(tileNuevo, textureManager->getTexture("nuevoenemigo"), x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 4);
+					objetoNuevo->setParametrosAnimacion(4);
+					break;*/
+					/*case 'f':
+						objetoNuevo = new Fruta(tileNuevo, textureManager->getTexture("fruta"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
+						int i = rand() % 8;
+						objetoNuevo->setPosicionXTextura(25 * i);
+						break;*/
 			}
 
 			// If the object was created, add it to the vector
@@ -113,16 +101,4 @@ bool MapGenerator::load(string path)
 	file.close();
 
 	return true;
-}
-
-void MapGenerator::populate(std::vector<GameObject*>& _vectorObjetosJuegoGM)
-{
-	/*for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
-		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
-	}*/
-
-	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
-		_vectorObjetosJuegoGM.push_back(*ivoj);
-	}
-
 }

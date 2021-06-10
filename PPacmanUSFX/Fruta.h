@@ -5,7 +5,7 @@
 
 #include "GameObject.h"
 //#include "Texture.h"
-#include "TileGraph.h"
+//#include "TileGraph.h"
 
 using namespace std;
 
@@ -18,6 +18,7 @@ enum TIPO_FRUTA {
 };
 
 class Fruta : public GameObject {
+protected:
 
 	TIPO_FRUTA tipoFruta;
 
@@ -28,11 +29,12 @@ class Fruta : public GameObject {
 	int contadorTiempoInvisible;
 	int numeroFrutaVisible;
 
-	Tile* tileActual;
-
+	//Tile* tileActual;
 public:
+
+	//vector<Texture*>frutaTexture;
 	//Constructores y destructores
-	Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(/*Tile* _tile*/ Texture* _frutaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 	//~Fruta();
 
 	//Metodos accesores
@@ -40,12 +42,12 @@ public:
 	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoInvisible() { return tiempoInvisible; }
-	Tile* getTileActual() { return tileActual; }
+	//Tile* getTileActual() { return tileActual; }
 
 	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setTiempoVisible(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoInvisible(int _tiempoInvisible) { tiempoInvisible = _tiempoInvisible; }
-	void setTileActual(Tile* _tileNuevo);
+	//void setTileActual(Tile* _tileNuevo);
 
 	// Metodos varios
 

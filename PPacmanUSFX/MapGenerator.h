@@ -14,6 +14,7 @@
 #include "Pared.h"
 #include "NuevoEnemigo.h"
 #include "Pacman2.h"
+#include "FrutaClasica.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
