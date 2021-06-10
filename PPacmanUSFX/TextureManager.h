@@ -14,8 +14,8 @@ private:
 	const string pathFantasma2 = "Resources/fantasmaamarillo.bmp";
 	const string pathFantasma3 = "Resources/azul.png";
 	const string pathFantasma4 = "Resources/fantasma.png";
-	const string pathFrutaClasica = "Resources/frutas2.png";
-	const string pathFruta = "Resources/frutas2.png";
+	const string pathFrutaClasica = "Resources/Frutas.png";
+	const string pathFrutaGalactica = "Resources/espacial2.png";
 	const string pathMoneda = "Resources/Monedas02.jpg";
 	const string pathSuperMoneda = "Resources/coint1.png";
 	const string pathPared1 = "Resources/Muro.png";
@@ -31,7 +31,7 @@ private:
 	Texture* fantasma3Texture;
 	Texture* fantasma4Texture;
 	Texture* frutaClasicaTexture;
-	Texture* frutaTexture;
+	Texture* frutaGalacticaTexture;
 	Texture* monedaTexture;
 	Texture* superMonedaTexture;
 	Texture* pared1Texture;

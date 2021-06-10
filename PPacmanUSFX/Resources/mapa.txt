@@ -1,5 +1,5 @@
 xxxxxxxxxxxxxxxxxxxx
-x..g.....e......f..x                                
+x..g.g...e......f..x                                
 x.xx.xx.xxxx.xx.xx.x                
 x.ww.xx.xxxx.xx.ww.x     
 xoww.xx......xx.wwox 
@@ -8,7 +8,7 @@ x.....f........f...x
 xx.xoxx      xxox.xx               
 xx.xoxx abcd xxox.xx      
 xx.x.xwxwxwxwxx.x.xx           
-x..................x                  
+x...gg.............x                  
 x.x.wxwxwxwxwxwx.x.x                
 x.x.wxwxwxwxwxwx.x.x         
 x.......p..........x                  

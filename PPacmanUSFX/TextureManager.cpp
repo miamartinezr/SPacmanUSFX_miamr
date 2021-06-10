@@ -23,6 +23,9 @@ TextureManager::TextureManager()
 	frutaClasicaTexture = new Texture();
 	frutaClasicaTexture->loadFromImage(pathFrutaClasica);
 	addTexture("frutaClasica", frutaClasicaTexture);
+	frutaGalacticaTexture = new Texture();
+	frutaGalacticaTexture->loadFromImage(pathFrutaGalactica);
+	addTexture("frutaGalactica", frutaGalacticaTexture);
 	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
 	addTexture("moneda", monedaTexture);

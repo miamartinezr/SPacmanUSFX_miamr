@@ -22,6 +22,7 @@
     <ClCompile Include="Fantasma.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="FrutaClasica.cpp" />
+    <ClCompile Include="FrutaGalactica.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="Fantasma.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="FrutaClasica.h" />
+    <ClInclude Include="FrutaGalactica.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MapGenerator.h" />

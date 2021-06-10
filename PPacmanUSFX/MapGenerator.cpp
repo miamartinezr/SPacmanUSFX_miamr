@@ -86,7 +86,11 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'f':
-				objetoNuevo = new FrutaClasica(textureManager->getTexture("frutaClasica"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo = new FrutaClasica(textureManager->getTexture("frutaClasica"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(3);
+				break;
+			case 'g':
+				objetoNuevo = new FrutaGalactica(textureManager->getTexture("frutaGalactica"), x * 40, y * 40, 25, 25, anchoPantalla, altoPantalla);
 				objetoNuevo->setParametrosAnimacion(3);
 				break;
 			/*case 'e':
