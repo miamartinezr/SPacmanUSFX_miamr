@@ -4,16 +4,16 @@ class FrutaClasica :
     public Fruta
 {
 private:
-	int puntosAumento;
-	int vidaExtra;
+	int aumentarPuntosVida;
+	int aumentarVelocidad;
 
 public:
 	FrutaClasica(Texture* _frutaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
-	int getPuntosAumento() { return puntosAumento; }
-	int getVidaExtra() { return vidaExtra; }
+	int getAumentarPuntosVida() { return aumentarPuntosVida; }
+	int getAumentarVelocidad() { return aumentarVelocidad; }
 
-	void setPuntosAumento(int _puntosAumento) { puntosAumento = _puntosAumento; }
-	void setVidaExtra(int _vidaExtra) { vidaExtra = _vidaExtra; }
+	void setAumentarPuntosVida(int _aumentarPuntosVida) { aumentarPuntosVida = _aumentarPuntosVida; }
+	void setAumentarVelocidad(int _aumentarVelocidad) { aumentarVelocidad = _aumentarVelocidad; }
 
 	//Manejador de Eventos
 };

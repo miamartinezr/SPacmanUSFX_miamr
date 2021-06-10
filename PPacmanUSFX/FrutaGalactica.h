@@ -4,16 +4,16 @@ class FrutaGalactica :
     public Fruta
 {
 private:
-    int cambioDireccion;
-    int puntosMenos;
+    int disminuirPuntosVida;
+    int congelaMovimiento;
 
 public:
     FrutaGalactica(Texture* _frutaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 
-    int getCambioDireccion() { return cambioDireccion; }
-    int getPuntosMenos() { return puntosMenos; }
+    int getDisminuirPuntosVida() { return disminuirPuntosVida; }
+    int getCongelaMovimiento() { return congelaMovimiento; }
 
-    void setRalentizacion(int _cambioDireccion) { cambioDireccion = _cambioDireccion; }
-    void setPuntosMenos(int _puntosMenos) { puntosMenos = _puntosMenos; }
+    void setDisminuirPuntosVida(int _disminuirPuntosVida) { disminuirPuntosVida = _disminuirPuntosVida; }
+    void setCongelaMovimiento(int _congelaMovimiento) { congelaMovimiento = _congelaMovimiento; }
 };
 
