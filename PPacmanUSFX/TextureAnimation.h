@@ -26,4 +26,3 @@ public:
 	void addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion);
 };
 
-

@@ -9,16 +9,19 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
+
+#include "TextureAnimation.h"
 #include "PathFinder.h"
 #include "Pacman.h"
 
+
 using namespace std;
 
-class Fantasma : public GameObject{
-private:
-	// Velocidad de fantasma en los ejes X y Y
-	int velocidadX;
-	int velocidadY;
+class Fantasma : public GameObject {
+protected:
+	//Velocidad en eje X y Y
+	
+	//Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
 	int posicionXDestino;
@@ -27,39 +30,41 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
+	vector<Tile*> camino;
+	SDL_Point lastPacmanPos;
+
 	Tile* tileActual;
 	Tile* tileSiguiente;
-	
+
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
-	 
+
+	TextureAnimation* texturaAnimacion;
+
 	bool tratarDeMover(MoveDirection _direccionNueva);
-
-	vector <Tile*>camino;
-
 public:
-	// Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int posicionY, int _ancho, int _alto, int anchoPantalla, int altoPantalla, int _velocidadPatron);
+	//Constructores y destructores
+	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron);
 	//~Fantasma();
 
-	//MetodosAccesores
+	//Metodos accesores
+
 	
-	int getVelocidadX() { return velocidadX; }
-	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
+
 	
-	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
-	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
-	void setVelocidadPatrton(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
-	
-	//Metodos varios
+
+	// Metodos varios
 	
 	// Actualizar datos fantasma
-	void update() override;
-
-	static bool AvoidInPathFinder(Tile* _tile);
+	virtual void update() override ;
+	void render() override;
+	static bool avoidInPathFinder(Tile* _tile);
+	bool hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint);
+	void deleteGameObject() override;
 };

@@ -9,14 +9,24 @@ class TileGraph;
 
 class GameObject
 {
-public:
+protected:
 	string nombre;
-	static TileGraph* tileGraph;
 	static int numeroObjetosCreados;
 
-protected:
 	// Posicion en el eje X y Y
 	int idObjeto;
+
+	// Si el objeto es visible
+	bool eliminar;
+
+	//Propiedades para representacion grafica
+protected:
+	// Textura para representacion grafica del objeto
+	Texture* textura;
+
+	bool visible;
+	bool enMovimiento;
+
 	int posicionX;
 	int posicionY;
 
@@ -24,30 +34,18 @@ protected:
 	int ancho;
 	int alto;
 
-	// Ancho y alto de la pantalla del juego
-	int anchoPantalla;
-	int altoPantalla;
-
-	// Si el objeto es visible
-	bool visible;
-	bool eliminar;
-	bool enMovimiento;
-
-	// Textura para representacion grafica del objeto
-	Texture* textura;
-
 	int numeroFrame;
 	int contadorFrames;
 	int framesMovimiento;
 
-	/*int posicionXTextura;
-	int posicionYTextura;*/
-
 	SDL_Rect* colisionador;
+public:
+	static TileGraph* tileGraph;
+
 
 public:
 	//Constructores y destructores
-	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	GameObject(Texture* _textura, int _posicionX, int _posicionY);
 	~GameObject() {};
 
 	//Metodos accesores
@@ -56,8 +54,6 @@ public:
 	int getPosicionY() { return posicionY; }
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
-	int getAnchoPantalla() { return anchoPantalla; }
-	int getAltoPantalla() { return altoPantalla; }
 	bool getVisible() { return visible; }
 	bool getEliminar() { return eliminar; }
 	bool getEnMovimiento() { return enMovimiento; }
@@ -66,11 +62,8 @@ public:
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void setAncho(int _ancho) { ancho = _ancho; }
 	void setAlto(int _alto) { alto = _alto; }
-	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
-	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
-	//void eliminarGameObject() { eliminar = true; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 
 	// Metodos varios
@@ -87,3 +80,4 @@ public:
 	virtual void deleteGameObject() { eliminar = true; }
 	virtual void free() {};
 };
+ 

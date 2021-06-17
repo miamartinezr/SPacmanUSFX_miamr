@@ -24,61 +24,57 @@ protected:
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
-	// Velocidad en eje X e Y
-	int velocidadX;
-	int velocidadY;
 
 	// Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidadPatron;
+	int velocidad;
 
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
 	TextureAnimation* texturaAnimacion;
-	
-	// Implementar pacman2
-	//bool guerreroPacman = false;
+	//static Pacman* instancia;
 
-	//Constructores y destructores
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX,
-		int _posicionY, int _ancho,
-		int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
+	int energia;
+	int state;
 
-	static Pacman* instanciaP;
 public:
-	//Constructores y destructores
-	//Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, 
-	//	int _posicionY, int _ancho, 
-	//	int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron /*bool _guerreroPacman*/);
+	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
 
-	//~Pacman();
+	//	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-	//Metodos accesores
-	static Pacman* crearInstanciaP(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+		//Constructores y destructores
 
-	int getVelocidadX() { return velocidadX; }
-	int getVelocidadY() { return velocidadY; }
-	int getVelocidadPatron() { return velocidadPatron; }
+		//~Pacman();
+
+		//Metodos accesores
+	
+	int getState() { return state; }
+	void setState(int _state) { state = _state; }
+
+
+
+	int getVelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
+	int getEnergia() { return energia; }
 
-	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
-	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
-	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+
+	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-
+	void setEnergia(int _energia) { energia = _energia; }
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
+	void restarEnergia();
 
 	// Manejador de eventos de pacman
-	virtual void handleEvent(SDL_Event* event) /*override*/;
+	void handleEvent(SDL_Event* event) override;
 	// Mover pacman
 	void update() override;
 	// Renderizar imagen pacman
 	void render() override;
 	//void update();
 	void deleteGameObject() override;
-};
 
+};

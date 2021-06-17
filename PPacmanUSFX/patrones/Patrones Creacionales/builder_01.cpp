@@ -53,6 +53,8 @@ public:
 		std::cout << "Motor horsepower:" << Motor->horsepower << std::endl;
 		std::cout << "tire size:" << Neumaticos[0]->size << "'" << std::endl;
 	}
+
+	//void update() override;
 };
 
 /* Builder is responsible for constructing the smaller parts */

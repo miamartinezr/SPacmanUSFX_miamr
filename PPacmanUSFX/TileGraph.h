@@ -10,18 +10,17 @@ using namespace std;
 class TileGraph
 {
 private:
-	//Tile* tiles;
 	vector<Tile*> vectorTilesGraph;
-	//list<Tile*> listaTilesGraph;
-
-	int anchoTileGraph;
-	int altoTileGraph;
-
 	int getIndice(int _x, int _y);
+public:
+	static int anchoTileGraph; 
+	static int altoTileGraph;
+	static int anchoPantalla;
+	static int altoPantalla;
 
 public:
 	TileGraph();
-	TileGraph(int _anchoTileGraph, int _altoTileGraph);
+	TileGraph(int _anchoTileGraph, int _altoTileGraph, int _anchoPantalla, int _altoPantalla);
 	~TileGraph();
 
 	void reconfigurar(int _anchoTileGraph, int _altoTileGraph);
@@ -33,3 +32,4 @@ public:
 	Pacman* getPacman();
 	
 };
+ 
