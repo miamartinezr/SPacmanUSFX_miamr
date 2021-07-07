@@ -12,6 +12,7 @@
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"
+#include "DrMalvado.h"
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"

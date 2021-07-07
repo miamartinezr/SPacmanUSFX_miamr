@@ -49,6 +49,10 @@ void TextureManager::inicializarRecursos()
 	paredClasicoAdapterTexture->loadFromImage(pathParedClasicoAdapter);
 	addTextura("pared_clasico_adapter", paredClasicoAdapterTexture);
 
+	drMalvadoTexture = new Texture();
+	drMalvadoTexture->loadFromImage(pathDrMalvado);
+	addTextura("drMalvado", drMalvadoTexture);
+
 	pacmanGalacticoTexture = new Texture();
 	pacmanGalacticoTexture->loadFromImage(pathPacmanGalactico);
 	addTextura("pacman_galactico", pacmanGalacticoTexture);

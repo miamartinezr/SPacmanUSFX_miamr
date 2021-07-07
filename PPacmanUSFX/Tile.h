@@ -7,6 +7,7 @@ class Fantasma;
 class Fruta;
 class Moneda;
 class Pared;
+class DrMalvado;
 class Wall;
 
 class Tile
@@ -18,6 +19,7 @@ private:
 	Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
+	DrMalvado* drMalvado;
 	Wall* wall;
 
 	int posicionX;
@@ -38,9 +40,11 @@ public:
 	Fruta* getFruta() { return fruta; }
 	Moneda* getMoneda() { return moneda; }
 	Pared* getPared() { return pared; }
+	DrMalvado* getDrMalvado() { return drMalvado; }
 	Wall* GetWall() { return ((Wall*)pared); }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
+	// Posicion Wall
 	SDL_Point GetPosition() {
 		//SDL_Point position = {posicionX, posicionY};
 		/*SDL_Point position;
@@ -59,5 +63,6 @@ public:
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void SetWall(Wall* _wall) { pared = ((Pared*)_wall); }
+	void setDrMalvado(DrMalvado* _drMalvado) { drMalvado = _drMalvado; }
 };
 

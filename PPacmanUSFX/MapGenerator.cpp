@@ -43,8 +43,7 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'x':
-				objetoNuevo = new Pared(tileNuevo, TextureManager::getInstancia()->getTextura("pared_clasico"));
-				
+				objetoNuevo = new Pared(tileNuevo, TextureManager::getInstancia()->getTextura("pared_clasico"));				
 				((GameActor*)objetoNuevo)->setFramesDireccion(1);
 
 				/*objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, x * Tile::altoTile, y * Tile::altoTile, false);
@@ -56,6 +55,10 @@ bool MapGenerator::load(string path)
 
 				/*objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
 				objetoNuevo->setFramesDireccion(4);*/
+				break;
+			case'o':
+				objetoNuevo = new Moneda(tileNuevo, TextureManager::getInstancia()->getTextura("supermoneda_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(4);
 				break;
 			case 'p':
 				objetoNuevo = new Pacman(tileNuevo, TextureManager::getInstancia()->getTextura("pacman_clasico"));
@@ -114,6 +117,14 @@ bool MapGenerator::load(string path)
 			case 'd':
 				/*objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 3);
 				objetoNuevo->setFramesDireccion(4);*/
+				break;
+			case 'z':
+				objetoNuevo = new DrMalvado(tileNuevo, TextureManager::getInstancia()->getTextura("drMalvado"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(4);
+				break;
+			case 'f':
+				objetoNuevo = new Fruta(tileNuevo, TextureManager::getInstancia()->getTextura("fruta_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(4); 
 				break;
 			}
 

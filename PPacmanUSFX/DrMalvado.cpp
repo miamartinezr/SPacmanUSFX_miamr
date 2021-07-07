@@ -1,13 +1,14 @@
-#include "Fruta.h"
+#include "DrMalvado.h"
 #include <iostream>
 
 using namespace std;
 
-Fruta::Fruta(Tile* _tile, Texture* _texture) : GameActor(_texture)
-{
+DrMalvado::DrMalvado(Tile* _tile, Texture* _texture) :
+	GameActor(_texture) {
+
 	tileActual = _tile;
 	if (tileActual != nullptr) {
-		tileActual->setFruta(nullptr);
+		tileActual->setDrMalvado(nullptr);
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 
@@ -19,18 +20,16 @@ Fruta::Fruta(Tile* _tile, Texture* _texture) : GameActor(_texture)
 		posicionY = 0;
 	}
 
-	tipoFruta = TIPO_FRUTA_FRUTILLA;
-
 	visible = false;
 
 	tiempoVisible = 100;
 	tiempoInvisible = 150;
 	contadorTiempoVisible = 0;
 	contadorTiempoInvisible = 0;
-	numeroFrutaVisible = 0;
+	//numeroDrVisible = 0;
 }
 
-void Fruta::update()
+void DrMalvado::update()
 {
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;
@@ -41,7 +40,7 @@ void Fruta::update()
 			contadorTiempoInvisible = 0;
 			visible = true;
 			//numeroFrutaVisible = rand() % frutasTextures.size();
-			numeroFrutaVisible = rand() % 4;
+			//numeroFrutaVisible = rand() % 4;
 		}
 		else {
 			contadorTiempoInvisible++;
@@ -52,12 +51,11 @@ void Fruta::update()
 		contadorTiempoVisible++;
 	}
 }
-void Fruta::deleteGameObject()
+
+void DrMalvado::deleteGameObject()
 {
 	// Calling the base function
 	GameObject::deleteGameObject();
 
 	tileActual->setFruta(nullptr);
 }
-
-

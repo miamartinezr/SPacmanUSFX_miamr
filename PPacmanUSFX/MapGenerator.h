@@ -13,6 +13,7 @@
 #include "MsPacman.h"
 #include "Fruta.h"
 #include "Pared.h"
+#include "DrMalvado.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
