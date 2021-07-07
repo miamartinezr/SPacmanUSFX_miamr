@@ -23,4 +23,3 @@ private:
 	TileGraph* pTileGraph;
 	function<bool(Tile*)> avoidFunction;
 };
-

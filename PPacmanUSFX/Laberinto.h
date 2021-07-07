@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include<vector>
 #include<iostream>
 #include<string>
 #include <fstream>
@@ -9,17 +9,16 @@
 #include "MazeObject.h"
 
 using namespace std;
+
+
 class Laberinto
 {
 private:
 	vector<MazeObject*> vectorMazeObjects;
-	Texture* superficie;
+	Texture* fondosuperficie;
 	TileGraph* tileGraph;
-
 public:
-	Laberinto(string path;)
-
-
+	bool load(string path);
 
 };
 

@@ -12,20 +12,19 @@
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"
-#include "NuevoEnemigo.h"
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "Pacman2.h"
-#include "TextureManager.h"
-#include "FactoryPacmanClasico.h"
-#include "FactoryPacmanGalactico.h"
+//#include "FactoryPacmanClasico.h"
+//#include "FactoryPacmanGalactico.h"
+#include "GameActor.h"
 
 using namespace std;
 
+
 //Screen dimension constants
-const int SCREEN_WIDTH =800;
+const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
 class GameManager
@@ -38,19 +37,18 @@ private:
 
     //The window renderer
     SDL_Renderer* gRenderer;
-
+   
     vector<GameObject*> actoresJuego;
-    //list<GameObject>* lactoresJuego;
+    list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
-    Factory* tipoFabrica;
+    //Factory* tipoFabrica;
 
     GameManager();
     static GameManager* instancia;
-
 public:
     static GameManager* crearInstancia();
-    
+
     int onExecute();
     bool onInit();
     void onEvent(SDL_Event* Event);
@@ -59,4 +57,4 @@ public:
     void onCleanup();
 };
 
- 
+    

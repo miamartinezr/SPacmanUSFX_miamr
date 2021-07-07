@@ -5,6 +5,7 @@
 #include "ParedGalactico.h"
 #include "FrutaGalactico.h"
 #include "MonedaGalactico.h"
+#include "Tile.h"
 
 class FactoryPacmanGalactico :
     public Factory
@@ -16,3 +17,4 @@ public:
     GameObject* createFrutaInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) override;
     GameObject* createMonedaInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) override;
 };
+

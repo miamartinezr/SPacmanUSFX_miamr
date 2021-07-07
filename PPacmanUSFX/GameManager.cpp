@@ -8,6 +8,7 @@ GameManager* GameManager::crearInstancia() {
 	if (instancia == nullptr) {
 		instancia = new GameManager();
 	}
+
 	return instancia;
 }
 
@@ -16,27 +17,31 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 
 	juego_en_ejecucion = true;
-	tipoFabrica = new FactoryPacmanClasico;
+	//tipoFabrica = new FactoryPacmanClasico;
 	//tipoFabrica = new FactoryPacmanGalactico;
 }
 
 int GameManager::onExecute() {
-	if (onInit() == false) {
-		return -1;
-	}
-
+    if (onInit() == false) {
+        return -1;
+    }
+		
 	srand(time(nullptr));
 
-	TileGraph tileGraphGM(20, 15, 900, 700);
-	textureManager = new TextureManager();
-	GameObject::tileGraph = &tileGraphGM;
-	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT, tipoFabrica);
+	TileGraph tileGraphGM(20, 15, 800, 600);
+	textureManager = TextureManager::getInstancia();
+	textureManager->setRenderer(gRenderer);
+	textureManager->inicializarRecursosSDL(gRenderer);
+	//TextureManager::getInstancia()->inicializarRecursosSDL(gRenderer);
+	GameActor::tileGraph = &tileGraphGM;
+	//generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT, tipoFabrica);
+	generadorNivelJuego = new MapGenerator(&tileGraphGM, /*textureManager,*/ SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 
-	SDL_Event Event;
+    SDL_Event Event;
 
-	while (juego_en_ejecucion) {
+    while (juego_en_ejecucion) {
 
 		for (int i = 0; i < actoresJuego.size(); i++) {
 			if (actoresJuego[i]->getEliminar()) {
@@ -44,12 +49,13 @@ int GameManager::onExecute() {
 			}
 		}
 
-		while (SDL_PollEvent(&Event)) {
-			onEvent(&Event);
+
+        while (SDL_PollEvent(&Event)) {
+            onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
 				actoresJuego[i]->handleEvent(&Event);
 			}
-		}
+        }
 
 		auto idob = actoresJuego[3]->getIdObjeto();
 
@@ -58,19 +64,19 @@ int GameManager::onExecute() {
 		SDL_RenderClear(gRenderer);
 
 		//Update screen
-
-		onLoop();
-		onRender();
+		
+        onLoop();
+        onRender();
 		SDL_RenderPresent(gRenderer);
-	}
+    }
 
-	onCleanup();
+    onCleanup();
 
-	return 0;
+    return 0;
 }
 
-bool GameManager::onInit() {
-	//Initialization flag
+bool GameManager::onInit() { 
+    //Initialization flag
 	bool success = true;
 
 	//Initialize SDL
@@ -83,17 +89,17 @@ bool GameManager::onInit() {
 	{
 		//Create window
 		gWindow = SDL_CreateWindow("Pacman USFX", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-		if (gWindow == NULL)
+		if (gWindow == nullptr)
 		{
 			cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
 			success = false;
 		}
 		else
 		{
-
+			
 			//Create vsynced renderer for window
 			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-			if (gRenderer == NULL)
+			if (gRenderer == nullptr)
 			{
 				cout << "Renderer could not be created! SDL Error: " << SDL_GetError() << endl;
 				success = false;
@@ -102,7 +108,7 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-				if(TTF_Init() == -1){
+				if (TTF_Init()== -1) {
 					cout << "Error inicializacion SDL_ttf" << TTF_GetError() << endl;
 					success = false;
 				}
@@ -131,6 +137,6 @@ void GameManager::onRender() {
 };
 
 void GameManager::onCleanup() {
-
+	
 	SDL_Quit();
 };
